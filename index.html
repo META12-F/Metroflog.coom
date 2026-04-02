@@ -8,7 +8,7 @@
     <style>
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background-color: #001a33; /* Azul marino */
+            background-color: #001a33; /* Azul marino solicitado */
             color: #ffffff;
             font-size: 12px;
             margin: 0;
@@ -17,13 +17,15 @@
         a { color: #00ffff; text-decoration: none; }
         a:hover { text-decoration: underline; }
         
-        /* Contenedor responsivo */
+        /* Contenedor central fijo - La esencia de 2009 */
         .main-container {
-            width: 100%;
-            max-width: 960px; 
+            width: 1000px; 
             margin: 0 auto;
             background-color: #001a33;
         }
+        
+        .sidebar { width: 180px; flex-shrink: 0; }
+        .center-content { width: 600px; flex-shrink: 0; }
         
         .black-box {
             background-color: #000000;
@@ -36,170 +38,141 @@
         
         .nav-bar-top {
             background-color: #000000;
-            border-bottom: 1px solid #004488;
-            padding: 5px;
-            font-size: 10px;
+            border-bottom: 2px solid #004488;
+            padding: 4px;
+            font-size: 11px;
             font-weight: bold;
             text-align: center;
-        }
-
-        .login-input {
-            width: 100%;
-            height: 18px;
-            padding: 0 2px;
-            font-size: 11px;
-            color: #000;
-            border: 1px solid #666;
-        }
-
-        /* Ajustes para que las columnas se apilen en móvil */
-        @media (max-width: 768px) {
-            .flex-container {
-                flex-direction: column;
-                align-items: center;
-            }
-            .sidebar {
-                width: 100% !important;
-                max-width: 400px;
-                order: 2; /* Las barras laterales se van abajo en celular */
-            }
-            .center-content {
-                width: 100% !important;
-                max-width: 100%;
-                order: 1; /* La foto principal va primero */
-            }
-            .nav-bar-top {
-                font-size: 9px;
-                flex-wrap: wrap;
-                display: flex;
-                justify-content: center;
-                gap: 5px;
-            }
         }
     </style>
 </head>
 <body class="pb-10">
 
-    <!-- BARRA DE NAVEGACIÓN SUPERIOR -->
-    <div class="nav-bar-top text-white">
+    <!-- BARRA DE NAVEGACIÓN SUPERIOR (Sub-menu clásico) -->
+    <div class="nav-bar-top text-white space-x-4">
         <a href="#">mi muro</a> | <a href="#">mis fotos</a> | <a href="#">favoritos</a> | <a href="#">mensajes personales</a> | <a href="#">configuración</a>
     </div>
 
     <div class="main-container">
         
         <!-- HEADER -->
-        <div class="flex flex-col sm:flex-row justify-between items-center sm:items-start py-6 px-4 gap-4">
+        <div class="flex justify-between items-end py-6 px-4">
             <div class="flex items-center space-x-2">
-                <div class="w-9 h-9 bg-white text-black font-bold flex items-center justify-center text-2xl border border-black">m</div>
+                <div class="w-10 h-10 bg-white text-black font-bold flex items-center justify-center text-2xl border-2 border-black">m</div>
                 <div class="leading-none">
-                    <span class="font-bold text-xl tracking-tighter block">METRO</span>
-                    <span class="font-bold text-xl tracking-tighter block">FLOG</span>
+                    <span class="font-bold text-2xl tracking-tighter block">METRO</span>
+                    <span class="font-bold text-2xl tracking-tighter block">FLOG</span>
                 </div>
             </div>
             <div class="flex-grow text-center">
-                <h1 class="text-2xl sm:text-3xl font-bold italic tracking-tight">MiI eSpAciOo xP &lt;3</h1>
-                <p class="text-[11px] text-[#00ffff] font-bold mt-1 uppercase">Perfil de dAvId_tOrReS</p>
+                <h1 class="text-3xl font-bold italic">MiI eSpAciOo xP &lt;3</h1>
+                <p class="text-xs font-bold text-[#00ffff] mt-1">Perfil de dAvId_tOrReS</p>
             </div>
-            <div class="text-right text-[11px] font-bold hidden sm:block">
-                <a href="#">Crea tu<br>metroFLOG</a>
+            <div class="text-right text-xs">
+                <a href="#" class="font-bold">Crea tu<br>metroFLOG</a>
             </div>
         </div>
 
-        <div class="flex flex-container justify-between gap-4 px-2">
+        <div class="flex justify-between gap-2">
 
             <!-- COLUMNA IZQUIERDA -->
-            <div class="sidebar w-[170px] flex-shrink-0">
-                <!-- ARCHIVO -->
+            <div class="sidebar p-2">
                 <div class="black-box p-3 mb-4">
-                    <h2 class="text-base font-bold border-b border-gray-700 mb-2">2009</h2>
-                    <ul class="space-y-1 text-gray-300 text-[11px]">
+                    <h2 class="text-lg font-bold border-b border-gray-600 mb-2">2009</h2>
+                    <ul class="space-y-1 text-gray-300">
                         <li><a href="#">Enero (14)</a></li>
                         <li><a href="#">Febrero (28)</a></li>
                         <li><a href="#">Marzo (31)</a></li>
                         <li><a href="#">Abril (12)</a></li>
                     </ul>
+                    <h2 class="text-lg font-bold mt-4 border-b border-gray-600 mb-2">2008</h2>
                 </div>
 
                 <!-- CAJA DE USUARIO -->
                 <div class="black-box p-3 mb-4">
-                    <h3 class="text-[#00ffff] font-bold text-[10px] tracking-widest mb-2">USUARIOS</h3>
-                    <div class="space-y-2">
+                    <h3 class="text-[#00ffff] font-bold text-[10px] tracking-widest mb-2 uppercase">Usuarios</h3>
+                    <div class="space-y-3">
                         <div>
                             <label class="block text-[10px]">Usuario:</label>
-                            <input type="text" disabled value="Invitado" class="login-input bg-gray-200" />
+                            <input type="text" disabled value="Invitado" class="w-full h-5 px-1 text-black text-xs border border-gray-600" />
                         </div>
                         <div>
                             <label class="block text-[10px]">Contraseña:</label>
-                            <input type="password" disabled value="******" class="login-input bg-gray-200" />
+                            <input type="password" disabled value="******" class="w-full h-5 px-1 text-black text-xs border border-gray-600" />
                         </div>
                         <div class="flex items-center space-x-1">
                             <input type="checkbox" checked disabled class="w-3 h-3">
                             <span class="text-[9px]">Recordar usuario</span>
                         </div>
-                        <button disabled class="bg-[#00ff00] text-black font-bold py-1 px-4 text-[10px] border border-white mt-1 w-full uppercase">Ingresar</button>
+                        <button disabled class="bg-[#33cc33] text-white font-bold py-1 px-4 text-[10px] border border-white mt-2 w-full uppercase">Ingresar</button>
                     </div>
                 </div>
 
                 <!-- BANNER "NO ES UNA PÁGINA FALSA" -->
-                <div class="bg-[#00ff00] p-1 border-2 border-white text-black text-center font-bold mb-4">
+                <div class="bg-[#00ff00] p-1 border-2 border-white text-black text-center font-bold">
                     <div class="text-2xl">⚠️</div>
                     <p class="text-[11px] leading-tight mt-1 uppercase">NO ES UNA PÁGINA FALSA</p>
                 </div>
             </div>
 
             <!-- CONTENIDO CENTRAL -->
-            <div class="center-content w-[580px] flex-shrink-0">
+            <div class="center-content">
                 
                 <!-- TIRA DE FOTOS CON FECHAS -->
                 <div class="black-box p-2 mb-2">
                     <div class="flex justify-between gap-1">
+                        <!-- Foto 1 -->
                         <div class="text-center w-1/5">
-                            <img src="https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=100&h=80&fit=crop" class="w-full h-10 sm:h-14 object-cover photo-border mb-1" alt="[Imagen de Guitarra]">
-                            <span class="text-[8px] sm:text-[9px] block text-gray-500">28/03/09</span>
+                            <img src="https://images.unsplash.com/photo-1510915361894-db8b60106cb1?w=100&h=80&fit=crop" class="w-full h-14 object-cover photo-border mb-1" alt="[Imagen de Guitarra]">
+                            <span class="text-[9px] block text-gray-500">28/03/09</span>
                         </div>
+                        <!-- Foto 2 -->
                         <div class="text-center w-1/5">
-                            <img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=100&h=80&fit=crop" class="w-full h-10 sm:h-14 object-cover photo-border mb-1" alt="[Imagen de Balón de Fútbol]">
-                            <span class="text-[8px] sm:text-[9px] block text-gray-500">30/03/09</span>
+                            <img src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?w=100&h=80&fit=crop" class="w-full h-14 object-cover photo-border mb-1" alt="[Imagen de Balón de Fútbol]">
+                            <span class="text-[9px] block text-gray-500">30/03/09</span>
                         </div>
+                        <!-- Foto Actual -->
                         <div class="text-center w-1/5">
-                            <img src="mifoto.jpg" onerror="this.src='https://images.unsplash.com/photo-1521341056061-6d43232c6960?w=100&h=80&fit=crop'" class="w-full h-10 sm:h-14 object-cover border-2 border-[#00ffff] mb-1" alt="[Imagen de David]">
-                            <span class="text-[8px] sm:text-[9px] block text-[#00ffff] font-bold uppercase text-center">Actual</span>
+                            <img src="mifoto.jpg" onerror="this.src='https://images.unsplash.com/photo-1521341056061-6d43232c6960?w=100&h=80&fit=crop'" class="w-full h-14 object-cover border-2 border-[#00ffff] mb-1" alt="[Imagen de David]">
+                            <span class="text-[9px] block text-[#00ffff] font-bold uppercase">Actual</span>
                         </div>
+                        <!-- Foto 4 -->
                         <div class="text-center w-1/5">
-                            <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=100&h=80&fit=crop" class="w-full h-10 sm:h-14 object-cover photo-border mb-1" alt="[Imagen de Auto Deportivo]">
-                            <span class="text-[8px] sm:text-[9px] block text-gray-500">01/04/09</span>
+                            <img src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=100&h=80&fit=crop" class="w-full h-14 object-cover photo-border mb-1" alt="[Imagen de Auto Deportivo]">
+                            <span class="text-[9px] block text-gray-500">01/04/09</span>
                         </div>
+                        <!-- Foto 5 -->
                         <div class="text-center w-1/5">
-                            <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=100&h=80&fit=crop" class="w-full h-10 sm:h-14 object-cover photo-border mb-1" alt="[Imagen de Videojuegos]">
-                            <span class="text-[8px] sm:text-[9px] block text-gray-500">02/04/09</span>
+                            <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=100&h=80&fit=crop" class="w-full h-14 object-cover photo-border mb-1" alt="[Imagen de Videojuegos]">
+                            <span class="text-[9px] block text-gray-500">02/04/09</span>
                         </div>
                     </div>
-                    <div class="flex justify-between items-center text-[10px] font-bold mt-2 pt-1 border-t border-gray-800 px-1">
+                    <div class="flex justify-between items-center text-[10px] font-bold mt-2 pt-1 border-t border-gray-800">
                         <a href="#">&lt; Anterior</a>
-                        <span class="text-gray-500 text-[9px]">Archivo de fotos</span>
+                        <span class="text-gray-400">Archivo de fotos</span>
                         <a href="#">Siguiente &gt;</a>
                     </div>
                 </div>
 
                 <!-- FOTO PRINCIPAL -->
-                <div class="bg-black p-1 border border-gray-600 mb-4">
-                    <img src="mifoto.jpg" onerror="this.src='https://images.unsplash.com/photo-1521341056061-6d43232c6960?auto=format&fit=crop&w=600&q=80'" class="w-full h-auto object-contain block mx-auto" alt="[Imagen principal de David Torres]">
+                <div class="bg-black p-1 border border-gray-600 mb-2">
+                    <img src="mifoto.jpg" onerror="this.src='https://images.unsplash.com/photo-1521341056061-6d43232c6960?auto=format&fit=crop&w=600&q=80'" class="w-full object-contain block mx-auto" alt="[Imagen principal de David Torres]">
                 </div>
 
                 <!-- DESCRIPCIÓN -->
                 <div class="text-center px-4 mb-8">
-                    <h2 class="text-xl sm:text-2xl font-bold mb-3 text-[#00ffff] uppercase">dAvId ToRrEs</h2>
-                    <p class="font-bold text-sm mb-2 uppercase tracking-wide">qUe OnDaA mI gEnTe!! DaNdO eL rOl eN eL CaRrO!! 😎🚘</p>
-                    <p class="text-gray-400 text-xs">:: Para todos mis FF's y gente que pasa a rayar ::</p>
+                    <h2 class="font-bold text-2xl mb-4 text-[#00ffff] uppercase tracking-tighter">dAvId tOrReS</h2>
+                    <p class="font-bold text-sm mb-1">qUe OnDaA mI gEnTe!! DaNdO eL rOl eN eL CaRrO!! 😎🚘</p>
+                    <p class="text-gray-400 text-xs">:: sAlUdOs A tOdOs MiS FF's !! ::</p>
                 </div>
 
                 <hr class="border-gray-800 mb-6">
 
                 <!-- FIRMAS -->
-                <div class="px-2 mb-8">
-                    <h3 class="font-bold text-sm mb-3">Firmas (<span id="firmas-count-num">0</span>/20)</h3>
+                <div class="px-2">
+                    <h3 class="font-bold text-sm mb-3 uppercase">Firmas (<span id="firmas-count-num">0</span>/20)</h3>
                     <div id="firmas-list" class="black-box p-4 text-[11px] space-y-4 mb-6 min-h-[120px]">
-                        <p class="text-gray-600 italic text-center">Cargando firmas...</p>
+                        <p class="text-gray-500 italic text-center">Cargando firmas...</p>
                     </div>
 
                     <div class="black-box p-4">
@@ -207,50 +180,50 @@
                             <input type="text" id="nombreFirma" placeholder="Tu nombre / Nickname..." class="w-full h-7 px-2 text-black text-xs border border-gray-600 bg-white" required />
                             <textarea id="mensajeFirma" rows="3" placeholder="Deja tu firma aquí..." class="w-full p-2 text-black text-xs border border-gray-600 bg-white resize-none" required></textarea>
                             <div class="text-right">
-                                <button type="submit" id="submitBtn" class="bg-gray-300 text-black font-bold py-1 px-8 text-xs border border-gray-700 hover:bg-white transition-all uppercase w-full sm:w-auto">Firmar Flog</button>
+                                <button type="submit" id="submitBtn" class="bg-gray-300 text-black font-bold py-1 px-8 text-xs border border-gray-700 hover:bg-white transition-all uppercase">Firmar Flog</button>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
 
-            <!-- COLUMNA DERECHA -->
-            <div class="sidebar w-[170px] flex-shrink-0 text-center">
-                <h3 class="font-bold text-[13px] mb-4 border-b border-gray-700 pb-1">Favoritos de dAvId</h3>
-                <div class="grid grid-cols-2 sm:grid-cols-1 gap-4 sm:space-y-6">
-                    <div class="group">
-                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop" class="w-16 h-16 sm:w-20 sm:h-20 object-cover mx-auto photo-border mb-1" alt="[Imagen de Amiga 1]">
+            <!-- COLUMNA DERECHA (Favoritos) -->
+            <div class="sidebar p-2 text-center">
+                <h3 class="font-bold mb-4 border-b border-gray-700 pb-1 text-[13px]">Favoritos de dAvId</h3>
+                <div class="space-y-6">
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop" class="w-20 h-20 object-cover mx-auto photo-border mb-1" alt="[Amiga 1]">
                         <a href="#" class="text-[10px] font-bold block text-[#00ffff]">La_PrInCeSs</a>
-                        <span class="text-[9px] text-gray-500 italic">México</span>
+                        <span class="text-[9px] text-gray-500">México</span>
                     </div>
                     <div>
-                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop" class="w-16 h-16 sm:w-20 sm:h-20 object-cover mx-auto photo-border mb-1" alt="[Imagen de Amigo 1]">
+                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop" class="w-20 h-20 object-cover mx-auto photo-border mb-1" alt="[Amigo 1]">
                         <a href="#" class="text-[10px] font-bold block text-[#00ffff]">DaRk_Sk8r</a>
-                        <span class="text-[9px] text-gray-500 italic">Argentina</span>
+                        <span class="text-[9px] text-gray-500">Argentina</span>
                     </div>
                     <div>
-                        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop" class="w-16 h-16 sm:w-20 sm:h-20 object-cover mx-auto photo-border mb-1" alt="[Imagen de Amiga 2]">
+                        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop" class="w-20 h-20 object-cover mx-auto photo-border mb-1" alt="[Amiga 2]">
                         <a href="#" class="text-[10px] font-bold block text-[#00ffff]">~*MaRiAnA*~</a>
-                        <span class="text-[9px] text-gray-500 italic">España</span>
+                        <span class="text-[9px] text-gray-500">España</span>
                     </div>
                     <div>
-                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop" class="w-16 h-16 sm:w-20 sm:h-20 object-cover mx-auto photo-border mb-1" alt="[Imagen de Amigo 2]">
+                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop" class="w-20 h-20 object-cover mx-auto photo-border mb-1" alt="[Amigo 2]">
                         <a href="#" class="text-[10px] font-bold block text-[#00ffff]">El_MiKe_99</a>
-                        <span class="text-[9px] text-gray-500 italic">Colombia</span>
+                        <span class="text-[9px] text-gray-500">Colombia</span>
                     </div>
                     <div>
-                        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=100&h=100&fit=crop" class="w-16 h-16 sm:w-20 sm:h-20 object-cover mx-auto photo-border mb-1" alt="[Imagen de Amiga 3]">
+                        <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=100&h=100&fit=crop" class="w-20 h-20 object-cover mx-auto photo-border mb-1" alt="[Amiga 3]">
                         <a href="#" class="text-[10px] font-bold block text-[#00ffff]">xX_KaReN_Xx</a>
-                        <span class="text-[9px] text-gray-500 italic">Chile</span>
+                        <span class="text-[9px] text-gray-500">Chile</span>
                     </div>
                 </div>
-                <div class="mt-8 mb-4">
+                <div class="mt-8">
                     <a href="#" class="text-[10px] font-bold border border-[#00ffff] px-2 py-1 hover:bg-[#00ffff] hover:text-black transition-all">Ver todos</a>
                 </div>
             </div>
         </div>
 
-        <div class="text-center text-[10px] text-gray-600 mt-12 pb-10 border-t border-gray-900 pt-4 px-4">
+        <div class="text-center text-[10px] text-gray-600 mt-12 pb-10 border-t border-gray-900 pt-4">
             MetroFLOG © 2004-2009 - Todos los derechos reservados
         </div>
     </div>
