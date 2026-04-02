@@ -191,7 +191,6 @@
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getFirestore, collection, addDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-        import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
 
         // TUS CLAVES ÚNICAS DE FIREBASE
         const firebaseConfig = {
@@ -204,14 +203,14 @@
             measurementId: "G-3EK66Q995D"
         };
 
+        // Inicializamos la app SIN autenticación (conexión directa)
         const app = initializeApp(firebaseConfig);
-        const auth = getAuth(app);
         const db = getFirestore(app);
         
         let arrayFirmas = [];
         
-        // Rutas estrictas para Firestore
-        const firmasRef = collection(db, 'artifacts', 'metroflog-david', 'public', 'data', 'firmas');
+        // Carpeta en tu base de datos donde se guardarán
+        const firmasRef = collection(db, 'firmas');
 
         function renderizarFirmas() {
             const lista = document.getElementById('firmas-list');
@@ -243,20 +242,17 @@
             `).join('');
         }
 
-        // Autenticación anónima obligatoria antes de leer la base de datos
-        signInAnonymously(auth).then(() => {
-            onSnapshot(firmasRef, (snapshot) => {
-                arrayFirmas = snapshot.docs.map(doc => ({id: doc.id, ...doc.data()}));
-                arrayFirmas.sort((a, b) => a.timestamp - b.timestamp);
-                renderizarFirmas();
-            }, (error) => {
-                console.error("Error al leer la base de datos:", error);
-                document.getElementById('firmas-list').innerHTML = '<p class="text-red-400 italic text-center py-4">Faltan permisos. Recuerda poner las Reglas de Firebase en "true".</p>';
-            });
-        }).catch((error) => {
-            console.error("Error de autenticación:", error);
+        // Leer datos en tiempo real directamente
+        onSnapshot(firmasRef, (snapshot) => {
+            arrayFirmas = snapshot.docs.map(doc => ({id: doc.id, ...doc.data()}));
+            arrayFirmas.sort((a, b) => a.timestamp - b.timestamp);
+            renderizarFirmas();
+        }, (error) => {
+            console.error("Error al leer la base de datos:", error);
+            document.getElementById('firmas-list').innerHTML = '<p class="text-red-400 italic text-center py-4">Faltan permisos. Asegúrate de que las reglas de Firebase digan "true".</p>';
         });
 
+        // Guardar nueva firma
         document.getElementById('firma-form').addEventListener('submit', async (e) => {
             e.preventDefault();
             const nombre = document.getElementById('nombreFirma').value;
