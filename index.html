@@ -5,147 +5,201 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MiI eSpAciOo xP <3 - dAvId_tOrReS</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Forzamos la fuente clásica de Windows de la época y quitamos estilos modernos */
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #002244; /* Azul marino clásico */
+            color: #ffffff;
+            font-size: 13px;
+        }
+        a {
+            color: #00ccff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .caja-borde {
+            border: 1px solid #004488;
+            background-color: #001a33;
+        }
+        /* Scrollbar antiguo */
+        ::-webkit-scrollbar { width: 12px; }
+        ::-webkit-scrollbar-track { background: #001a33; }
+        ::-webkit-scrollbar-thumb { background: #004488; border: 1px solid #002244; }
+    </style>
 </head>
-<body class="min-h-screen bg-[#001f3f] text-white font-sans selection:bg-black selection:text-white pb-10 text-sm sm:text-base">
+<body class="min-h-screen pb-10 selection:bg-white selection:text-black">
 
-    <!-- Navbar Superior -->
-    <div class="w-full flex justify-between items-start p-4 max-w-5xl mx-auto bg-[#001f3f]">
-        <div class="flex items-center space-x-2">
-            <div class="w-10 h-10 bg-white text-black font-bold flex items-center justify-center rounded-sm text-2xl border-2 border-black">
-                M
-            </div>
-            <div class="leading-none">
-                <span class="font-bold text-2xl tracking-tighter">METRO</span><br />
-                <span class="font-bold text-2xl tracking-tighter">FLOG</span>
-            </div>
-        </div>
+    <!-- Contenedor Principal (Ancho fijo clásico de la época: 900px) -->
+    <div class="max-w-[900px] mx-auto pt-4 px-2">
 
-        <div class="text-center mt-2 flex-grow">
-            <h1 class="text-3xl md:text-4xl font-bold tracking-wider">MiI eSpAciOo xP &lt;3</h1>
-            <p class="text-sm mt-1 text-gray-300">Perfil de dAvId_tOrReS_VIP</p>
-        </div>
-
-        <div class="text-right mt-2 text-sm font-bold hidden sm:block">
-            <a href="#" class="text-white hover:text-[#00ffff] hover:underline">Crea tu<br />metroFLOG</a>
-        </div>
-    </div>
-
-    <!-- Contenedor Principal (3 Columnas) -->
-    <div class="max-w-5xl mx-auto flex flex-col md:flex-row gap-6 px-4 mt-2">
-
-        <!-- Columna Izquierda -->
-        <div class="w-full md:w-48 flex-shrink-0">
-            <div class="mb-8">
-                <h2 class="font-bold text-lg mb-2 border-b border-[#003366] pb-1">2009</h2>
-                <ul class="space-y-1 text-sm text-gray-300">
-                    <li><a href="#" class="hover:text-[#00ffff] hover:underline">Enero (14)</a></li>
-                    <li><a href="#" class="hover:text-[#00ffff] hover:underline">Febrero (28)</a></li>
-                    <li><a href="#" class="hover:text-[#00ffff] hover:underline">Marzo (31)</a></li>
-                    <li><a href="#" class="hover:text-[#00ffff] hover:underline">Abril (12)</a></li>
-                </ul>
-                <h2 class="font-bold text-lg mt-4 mb-2">2008</h2>
-            </div>
-
-            <div class="bg-[#002a55] p-3 rounded border border-[#004080]">
-                <h3 class="font-bold text-center mb-3">USUARIOS</h3>
-                <div class="space-y-3">
-                    <div>
-                        <label class="block text-xs mb-1">Usuario:</label>
-                        <input type="text" disabled value="Invitado" class="w-full p-1 text-black text-xs bg-gray-200" />
-                    </div>
-                    <div>
-                        <label class="block text-xs mb-1">Contraseña:</label>
-                        <input type="password" disabled value="******" class="w-full p-1 text-black text-xs bg-gray-200" />
-                    </div>
-                    <div class="text-center mt-2">
-                        <button disabled class="bg-[#cccccc] text-gray-600 font-bold py-1 px-4 text-xs border border-gray-400">
-                            Ingresar
-                        </button>
-                    </div>
-                    <p class="text-[10px] text-center text-[#00ffff] mt-2">Conectado para firmar</p>
+        <!-- Header Clásico -->
+        <div class="flex justify-between items-start mb-6">
+            <!-- Logo Izquierda -->
+            <div class="flex items-center space-x-1">
+                <div class="w-8 h-8 bg-white text-black font-bold flex items-center justify-center text-xl border border-black">
+                    m
                 </div>
-            </div>
-        </div>
-
-        <!-- Columna Central -->
-        <div class="flex-grow flex flex-col items-center">
-            
-            <div class="w-full flex justify-between items-center bg-[#002a55] py-1 px-4 text-xs font-bold mb-2">
-                <a href="#" class="hover:text-[#00ffff] hover:underline">&lt; Anterior</a>
-                <span>&gt; Archivo de fotos &lt;</span>
-                <a href="#" class="hover:text-[#00ffff] hover:underline">Siguiente &gt;</a>
-            </div>
-
-            <!-- Foto Principal -->
-            <div class="relative inline-block border-4 border-white shadow-[0_0_15px_rgba(0,0,0,0.5)] bg-black mt-4">
-                <!-- AQUÍ BUSCA TU FOTO -->
-                <img 
-                    src="mifoto.jpg" 
-                    alt="dAvId ToRrEs" 
-                    onerror="this.src='https://images.unsplash.com/photo-1521341056061-6d43232c6960?auto=format&fit=crop&w=500&q=80'"
-                    class="max-w-full md:max-w-[450px] object-contain"
-                />
-            </div>
-
-            <div class="w-full flex justify-between text-xs mt-2 font-bold max-w-[450px]">
-                <span>02/04/2009</span>
-                <div class="space-x-3 text-[#00ffff]">
-                    <a href="#" class="hover:underline">reportar foto</a>
-                    <a href="#" class="hover:underline">link directo</a>
+                <div class="leading-none text-white">
+                    <span class="font-bold text-xl tracking-tighter block">METRO</span>
+                    <span class="font-bold text-xl tracking-tighter block">FLOG</span>
                 </div>
             </div>
 
-            <!-- Descripción -->
-            <div class="mt-6 w-full max-w-[450px] text-center">
-                <h2 class="font-bold text-xl mb-4 text-[#00ffff]">dAvId ToRrEs</h2>
-                <p class="font-bold text-sm mb-2">qUe OnDaA mI gEnTe!! DaNdO eL rOl eN eL CaRrO!! 😎🚘</p>
-                <p class="text-sm mb-2">aQi dEjAnDo La FoTo De HoY, yA sAbEn, dEjEn Su fIrMa!!</p>
-                <p class="text-sm mb-4">sAlUdOs A tOdOs MiS FF's!!</p>
+            <!-- Título Central -->
+            <div class="text-center mt-1">
+                <h1 class="text-[28px] font-bold">MiI eSpAciOo xP &lt;3</h1>
+            </div>
+
+            <!-- Enlace Derecha -->
+            <div class="text-right text-[13px] font-bold">
+                <a href="#">Crea tu<br>metroFLOG</a>
+            </div>
+        </div>
+
+        <!-- Grid de 3 Columnas -->
+        <div class="flex flex-col md:flex-row justify-between gap-4">
+
+            <!-- COLUMNA IZQUIERDA (160px) -->
+            <div class="w-full md:w-[160px] flex-shrink-0">
                 
-                <hr class="border-[#004080] my-6" />
+                <!-- Archivo -->
+                <div class="mb-6 font-bold">
+                    <h2 class="text-[16px] mb-1">2009</h2>
+                    <ul class="space-y-0 text-[12px] font-normal">
+                        <li><a href="#">Enero (14)</a></li>
+                        <li><a href="#">Febrero (28)</a></li>
+                        <li><a href="#">Marzo (31)</a></li>
+                        <li><a href="#">Abril (12)</a></li>
+                    </ul>
+                    <h2 class="text-[16px] mt-3 mb-1">2008</h2>
+                    <h2 class="text-[16px] mt-1 mb-1">2007</h2>
+                </div>
+
+                <!-- Caja de Usuarios Clásica -->
+                <div class="mb-4">
+                    <h3 class="font-bold text-[11px] mb-1 tracking-widest text-[#00ccff]">USUARIOS</h3>
+                    <div class="space-y-2">
+                        <div>
+                            <label class="block text-[11px]">Usuario:</label>
+                            <input type="text" disabled value="Invitado" class="w-full h-5 px-1 text-black text-[11px] bg-white border border-gray-400" />
+                        </div>
+                        <div>
+                            <label class="block text-[11px]">Contraseña:</label>
+                            <input type="password" disabled value="******" class="w-full h-5 px-1 text-black text-[11px] bg-white border border-gray-400" />
+                        </div>
+                        <div class="flex items-center space-x-1 mt-1">
+                            <input type="checkbox" checked disabled class="w-3 h-3">
+                            <span class="text-[10px]">Recordar usuario</span>
+                        </div>
+                        <div class="mt-2">
+                            <!-- El clásico botón verde chillón de Metroflog -->
+                            <button disabled class="bg-[#33cc33] text-white font-bold py-[2px] px-3 text-[11px] border border-white cursor-not-allowed w-auto">
+                                Ingresar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Banner Falso Clásico -->
+                <div class="bg-[#00ff00] w-full h-[150px] flex items-center justify-center text-black font-bold text-center p-2 border-2 border-white">
+                    <p class="text-[11px]">NO ES UNA<br>PÁGINA<br>FALSA</p>
+                </div>
+            </div>
+
+
+            <!-- COLUMNA CENTRAL (Contenido Principal) -->
+            <div class="flex-grow flex flex-col items-center max-w-[500px]">
+                
+                <p class="text-[11px] mb-2 text-[#00ccff]">Perfil de dAvId_tOrReS</p>
+
+                <!-- Tira de 5 miniaturas -->
+                <div class="flex gap-1 justify-center mb-1">
+                    <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=60&h=60&fit=crop" class="w-[60px] h-[60px] object-cover border-2 border-[#004488]" alt="miniatura">
+                    <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=60&h=60&fit=crop" class="w-[60px] h-[60px] object-cover border-2 border-[#004488]" alt="miniatura">
+                    <!-- Miniatura Activa con borde blanco -->
+                    <img src="mifoto.jpg" onerror="this.src='https://images.unsplash.com/photo-1521341056061-6d43232c6960?w=60&h=60&fit=crop'" class="w-[60px] h-[60px] object-cover border-2 border-white" alt="miniatura actual">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=60&h=60&fit=crop" class="w-[60px] h-[60px] object-cover border-2 border-[#004488]" alt="miniatura">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=60&h=60&fit=crop" class="w-[60px] h-[60px] object-cover border-2 border-[#004488]" alt="miniatura">
+                </div>
+
+                <!-- Navegación -->
+                <div class="w-full flex justify-between items-center text-[11px] font-bold mb-4 bg-[#001a33] px-2 py-1">
+                    <a href="#">&lt; Anterior</a>
+                    <span>&gt; Archivo de fotos &lt;</span>
+                    <a href="#">Siguiente &gt;</a>
+                </div>
+
+                <!-- FOTO PRINCIPAL -->
+                <div class="relative inline-block border-[1px] border-gray-400 bg-black">
+                    <img 
+                        src="mifoto.jpg" 
+                        alt="dAvId ToRrEs" 
+                        onerror="this.src='https://images.unsplash.com/photo-1521341056061-6d43232c6960?auto=format&fit=crop&w=500&q=80'"
+                        class="max-w-full md:max-w-[500px] object-contain block"
+                    />
+                </div>
+
+                <!-- Info debajo de la foto -->
+                <div class="w-full flex justify-between text-[11px] mt-1 mb-6 max-w-[500px]">
+                    <span class="font-bold">02/04/2009</span>
+                    <div class="space-x-2">
+                        <a href="#">reportar foto</a> | <a href="#">link directo</a>
+                    </div>
+                </div>
+
+                <!-- Título y Descripción -->
+                <div class="w-full max-w-[500px] text-center mb-6">
+                    <h2 class="font-bold text-[18px] mb-3">dAvId ToRrEs</h2>
+                    <p class="mb-2">qUe OnDaA mI gEnTe!! DaNdO eL rOl eN eL CaRrO!! 😎🚘</p>
+                    <p class="mb-2">aQi dEjAnDo La FoTo De HoY, yA sAbEn, dEjEn Su fIrMa!!</p>
+                    <p>sAlUdOs A tOdOs MiS FF's!!</p>
+                </div>
+                
+                <hr class="border-[#004488] w-full mb-6" />
                 
                 <!-- SECCIÓN DE FIRMAS -->
-                <div class="text-left w-full">
-                    <h3 class="font-bold mb-2 flex justify-between items-center">
-                        <span id="firmas-count">Cargando firmas...</span>
+                <div class="text-left w-full max-w-[500px]">
+                    <h3 class="font-bold text-[13px] mb-3">
+                        Firmas (<span id="firmas-count-num">0</span>/20) 
+                        <span id="firmas-lleno" class="text-red-400 hidden">- ¡Libro lleno!</span>
                     </h3>
 
-                    <!-- Lista de firmas -->
-                    <div id="firmas-list" class="bg-[#002a55] p-4 text-left rounded text-sm space-y-4 mb-6 border border-[#004080] max-h-[400px] overflow-y-auto">
-                        <p class="text-gray-400 italic text-center py-4">Conectando con el servidor...</p>
+                    <!-- Lista de firmas clásica -->
+                    <div id="firmas-list" class="caja-borde p-3 text-left text-[12px] space-y-4 mb-6 min-h-[100px]">
+                        <p class="text-gray-400 italic text-center py-2">Conectando con el servidor...</p>
                     </div>
 
-                    <!-- Formulario para firmar -->
-                    <div class="bg-[#003366] p-4 rounded border border-[#004080]">
-                        <h4 class="font-bold text-sm mb-3 text-center">¡Deja tu firma!</h4>
-                        <form id="firma-form" class="space-y-3">
+                    <!-- Formulario Clásico -->
+                    <div class="caja-borde p-3">
+                        <form id="firma-form" class="space-y-2">
                             <div>
-                                <label class="block text-xs mb-1">Tu nombre / Nickname:</label>
+                                <label class="block text-[11px] mb-[2px] font-bold">Tu nombre / Nickname:</label>
                                 <input 
                                     type="text" 
                                     id="nombreFirma"
                                     maxlength="30"
-                                    class="w-full p-1 text-black text-sm border border-gray-400 disabled:bg-gray-300"
-                                    placeholder="Ej: eMo_bOy_99"
+                                    class="w-full h-6 px-1 text-black text-[12px] border border-gray-400 bg-white disabled:bg-gray-300"
                                     required
                                 />
                             </div>
                             <div>
-                                <label class="block text-xs mb-1">Mensaje:</label>
+                                <label class="block text-[11px] mb-[2px] font-bold">Mensaje:</label>
                                 <textarea 
                                     id="mensajeFirma"
                                     rows="3"
                                     maxlength="200"
-                                    class="w-full p-1 text-black text-sm border border-gray-400 resize-none disabled:bg-gray-300"
-                                    placeholder="pAsA a rAyAr mI flOg!!"
+                                    class="w-full p-1 text-black text-[12px] border border-gray-400 bg-white disabled:bg-gray-300 resize-none"
                                     required
                                 ></textarea>
                             </div>
-                            <div class="text-center">
+                            <div class="text-right">
                                 <button 
                                     type="submit" 
                                     id="submitBtn"
-                                    class="bg-[#00ffff] text-[#001f3f] font-bold py-1 px-6 text-sm border border-white hover:bg-white hover:text-[#001f3f] cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                                    class="bg-gray-200 text-black font-bold py-1 px-4 text-[11px] border border-gray-500 hover:bg-gray-300 disabled:opacity-50 cursor-pointer"
                                 >
                                     Firmar Flog
                                 </button>
@@ -154,40 +208,48 @@
                     </div>
                 </div>
             </div>
+
+
+            <!-- COLUMNA DERECHA (160px - Favoritos) -->
+            <div class="w-full md:w-[160px] flex-shrink-0 text-center">
+                <h2 class="font-bold text-[13px] mb-4">Favoritos de<br />dAvId_tOrReS</h2>
+                
+                <div class="space-y-4">
+                    <!-- Fav 1 -->
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" class="w-[70px] h-[70px] object-cover mx-auto border border-white mb-1" alt="Fav 1" />
+                        <a href="#" class="text-[11px] font-bold block leading-tight">La_PrInCeSs</a>
+                        <span class="text-[10px] text-gray-400">México</span>
+                    </div>
+                    <!-- Fav 2 -->
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=100&q=80" class="w-[70px] h-[70px] object-cover mx-auto border border-white mb-1" alt="Fav 2" />
+                        <a href="#" class="text-[11px] font-bold block leading-tight">DaRk_Sk8r</a>
+                        <span class="text-[10px] text-gray-400">Argentina</span>
+                    </div>
+                    <!-- Fav 3 -->
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80" class="w-[70px] h-[70px] object-cover mx-auto border border-white mb-1" alt="Fav 3" />
+                        <a href="#" class="text-[11px] font-bold block leading-tight">~*MaRiAnA*~</a>
+                        <span class="text-[10px] text-gray-400">España</span>
+                    </div>
+                </div>
+                
+                <div class="mt-4">
+                    <a href="#" class="text-[11px] font-bold hover:underline">Ver todos los favoritos...</a>
+                </div>
+            </div>
+
         </div>
 
-        <!-- Columna Derecha (Favoritos) -->
-        <div class="w-full md:w-48 flex-shrink-0 mt-8 md:mt-0">
-            <h2 class="font-bold text-center text-lg mb-4 border-b border-[#003366] pb-1">Favoritos de<br />dAvId_tOrReS</h2>
-            
-            <div class="space-y-6">
-                <div class="text-center">
-                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" class="w-20 h-20 object-cover mx-auto border border-white mb-1" alt="Amigo" />
-                    <a href="#" class="text-xs font-bold hover:text-[#00ffff] hover:underline block leading-tight">La_PrInCeSs</a>
-                </div>
-                <div class="text-center">
-                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&q=80" class="w-20 h-20 object-cover mx-auto border border-white mb-1" alt="Amigo" />
-                    <a href="#" class="text-xs font-bold hover:text-[#00ffff] hover:underline block leading-tight">DaRk_Sk8r</a>
-                </div>
-                <div class="text-center">
-                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80" class="w-20 h-20 object-cover mx-auto border border-white mb-1" alt="Amigo" />
-                    <a href="#" class="text-xs font-bold hover:text-[#00ffff] hover:underline block leading-tight">~*MaRiAnA*~</a>
-                </div>
-            </div>
-            
-            <div class="mt-4 text-center">
-                <a href="#" class="text-xs font-bold text-[#00ffff] hover:underline">Ver todos los favoritos...</a>
-            </div>
+        <!-- Footer Clásico -->
+        <div class="text-center text-[11px] mt-10 pt-4 pb-6 border-t border-[#004488]">
+            <p>MetroFLOG © 2004-2009 - <a href="#">Términos de servicio</a> - <a href="#">Privacidad</a></p>
         </div>
 
     </div>
 
-    <!-- Footer -->
-    <div class="max-w-5xl mx-auto text-center text-xs mt-12 text-gray-400 border-t border-[#003366] pt-4 px-4">
-        <p>MetroFLOG © 2004-2009</p>
-    </div>
-
-    <!-- Lógica de Base de Datos para las Firmas -->
+    <!-- Lógica de Base de Datos para las Firmas (Intacta) -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getFirestore, collection, addDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
@@ -203,56 +265,51 @@
             measurementId: "G-3EK66Q995D"
         };
 
-        // Inicializamos la app SIN autenticación (conexión directa)
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
         
         let arrayFirmas = [];
-        
-        // Carpeta en tu base de datos donde se guardarán
         const firmasRef = collection(db, 'firmas');
 
         function renderizarFirmas() {
             const lista = document.getElementById('firmas-list');
-            const contador = document.getElementById('firmas-count');
+            const contadorNum = document.getElementById('firmas-count-num');
+            const avisoLleno = document.getElementById('firmas-lleno');
             const formInputs = [document.getElementById('nombreFirma'), document.getElementById('mensajeFirma'), document.getElementById('submitBtn')];
             
-            contador.innerHTML = `Firmas (${arrayFirmas.length}/20) ${arrayFirmas.length >= 20 ? '<span class="text-red-400 text-xs">¡Libro lleno!</span>' : ''}`;
+            contadorNum.innerText = arrayFirmas.length;
 
             if (arrayFirmas.length >= 20) {
+                avisoLleno.classList.remove('hidden');
                 formInputs.forEach(input => input.disabled = true);
             } else {
+                avisoLleno.classList.add('hidden');
                 formInputs.forEach(input => input.disabled = false);
             }
 
             if (arrayFirmas.length === 0) {
-                lista.innerHTML = '<p class="text-gray-400 italic text-center py-4">Sé el primero en rayar el flog de David...</p>';
+                lista.innerHTML = '<p class="text-gray-400 italic text-center py-2">Sé el primero en rayar el flog de David...</p>';
                 return;
             }
 
+            // Formato exacto de firma de Metroflog ("Usuario dijo: \n Mensaje")
             lista.innerHTML = arrayFirmas.map(firma => `
-                <div class="border-b border-[#004080] pb-2 last:border-0 mb-4">
-                    <div class="flex justify-between items-baseline">
-                        <span class="font-bold text-[#00ffff]">${firma.name}</span>
-                        <span class="text-[10px] text-gray-400">${new Date(firma.timestamp).toLocaleDateString()}</span>
-                    </div>
-                    <span class="text-gray-300 text-xs">dijo:</span>
-                    <p class="mt-1 break-words">${firma.message}</p>
+                <div class="mb-3">
+                    <a href="#" class="font-bold hover:underline text-[#00ccff]">${firma.name}</a> <span class="text-gray-300">dijo:</span><br>
+                    <span class="break-words block mt-[2px]">${firma.message}</span>
                 </div>
             `).join('');
         }
 
-        // Leer datos en tiempo real directamente
         onSnapshot(firmasRef, (snapshot) => {
             arrayFirmas = snapshot.docs.map(doc => ({id: doc.id, ...doc.data()}));
             arrayFirmas.sort((a, b) => a.timestamp - b.timestamp);
             renderizarFirmas();
         }, (error) => {
-            console.error("Error al leer la base de datos:", error);
-            document.getElementById('firmas-list').innerHTML = '<p class="text-red-400 italic text-center py-4">Faltan permisos. Asegúrate de que las reglas de Firebase digan "true".</p>';
+            console.error("Error al leer:", error);
+            document.getElementById('firmas-list').innerHTML = '<p class="text-red-400 italic text-center">Faltan permisos en Firebase (Reglas).</p>';
         });
 
-        // Guardar nueva firma
         document.getElementById('firma-form').addEventListener('submit', async (e) => {
             e.preventDefault();
             const nombre = document.getElementById('nombreFirma').value;
@@ -273,8 +330,8 @@
                 document.getElementById('nombreFirma').value = '';
                 document.getElementById('mensajeFirma').value = '';
             } catch(error) {
-                console.error("Error guardando la firma:", error);
-                document.getElementById('submitBtn').innerText = "Hubo un error";
+                console.error("Error:", error);
+                document.getElementById('submitBtn').innerText = "Error";
                 setTimeout(() => {
                     document.getElementById('submitBtn').innerText = "Firmar Flog";
                     document.getElementById('submitBtn').disabled = false;
