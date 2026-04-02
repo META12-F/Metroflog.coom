@@ -78,7 +78,7 @@
 
             <!-- Foto Principal -->
             <div class="relative inline-block border-4 border-white shadow-[0_0_15px_rgba(0,0,0,0.5)] bg-black mt-4">
-                <!-- AQUÍ BUSCARÁ TU FOTO. Si no la encuentra, pondrá la de relleno temporalmente -->
+                <!-- AQUÍ BUSCA TU FOTO -->
                 <img 
                     src="mifoto.jpg" 
                     alt="dAvId ToRrEs" 
@@ -190,49 +190,28 @@
     <!-- Lógica de Base de Datos para las Firmas -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
         import { getFirestore, collection, addDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
 
-        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : {};
+        // TUS CLAVES ÚNICAS DE FIREBASE
+        const firebaseConfig = {
+            apiKey: "AIzaSyCNL8UtSCZ8TbTrmHY3xgJg9ouyCjLRjSs",
+            authDomain: "metroflog-david.firebaseapp.com",
+            projectId: "metroflog-david",
+            storageBucket: "metroflog-david.firebasestorage.app",
+            messagingSenderId: "101012026989",
+            appId: "1:101012026989:web:b7dbb0fd5ceb5094093164",
+            measurementId: "G-3EK66Q995D"
+        };
+
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app);
         const db = getFirestore(app);
-        const appId = typeof __app_id !== 'undefined' ? __app_id : 'metroflog-david-app';
-
-        let currentUser = null;
-        let arrayFirmas = [];
-
-        const initAuth = async () => {
-            try {
-                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
-                    await signInWithCustomToken(auth, __initial_auth_token);
-                } else {
-                    await signInAnonymously(auth);
-                }
-            } catch (error) {
-                console.error("Error auth:", error);
-            }
-        };
         
-        initAuth();
-
-        onAuthStateChanged(auth, (user) => {
-            currentUser = user;
-            if (user) {
-                cargarFirmas();
-            }
-        });
-
-        function cargarFirmas() {
-            const firmasRef = collection(db, 'artifacts', appId, 'public', 'data', 'firmas_david');
-            onSnapshot(firmasRef, (snapshot) => {
-                arrayFirmas = snapshot.docs.map(doc => ({id: doc.id, ...doc.data()}));
-                arrayFirmas.sort((a, b) => a.timestamp - b.timestamp);
-                renderizarFirmas();
-            }, (error) => {
-                console.error("Error al obtener firmas:", error);
-            });
-        }
+        let arrayFirmas = [];
+        
+        // Rutas estrictas para Firestore
+        const firmasRef = collection(db, 'artifacts', 'metroflog-david', 'public', 'data', 'firmas');
 
         function renderizarFirmas() {
             const lista = document.getElementById('firmas-list');
@@ -264,29 +243,51 @@
             `).join('');
         }
 
+        // Autenticación anónima obligatoria antes de leer la base de datos
+        signInAnonymously(auth).then(() => {
+            onSnapshot(firmasRef, (snapshot) => {
+                arrayFirmas = snapshot.docs.map(doc => ({id: doc.id, ...doc.data()}));
+                arrayFirmas.sort((a, b) => a.timestamp - b.timestamp);
+                renderizarFirmas();
+            }, (error) => {
+                console.error("Error al leer la base de datos:", error);
+                document.getElementById('firmas-list').innerHTML = '<p class="text-red-400 italic text-center py-4">Faltan permisos. Recuerda poner las Reglas de Firebase en "true".</p>';
+            });
+        }).catch((error) => {
+            console.error("Error de autenticación:", error);
+        });
+
         document.getElementById('firma-form').addEventListener('submit', async (e) => {
             e.preventDefault();
             const nombre = document.getElementById('nombreFirma').value;
             const mensaje = document.getElementById('mensajeFirma').value;
 
             if (!nombre.trim() || !mensaje.trim() || arrayFirmas.length >= 20) return;
-
+            
             document.getElementById('submitBtn').disabled = true;
             document.getElementById('submitBtn').innerText = "Firmando...";
 
             try {
-                const firmasRef = collection(db, 'artifacts', appId, 'public', 'data', 'firmas_david');
                 await addDoc(firmasRef, {
                     name: nombre,
                     message: mensaje,
                     timestamp: Date.now()
                 });
+                
                 document.getElementById('nombreFirma').value = '';
                 document.getElementById('mensajeFirma').value = '';
-            } catch (error) {
-                console.error("Error al guardar:", error);
+            } catch(error) {
+                console.error("Error guardando la firma:", error);
+                document.getElementById('submitBtn').innerText = "Hubo un error";
+                setTimeout(() => {
+                    document.getElementById('submitBtn').innerText = "Firmar Flog";
+                    document.getElementById('submitBtn').disabled = false;
+                }, 3000);
             } finally {
-                document.getElementById('submitBtn').innerText = "Firmar Flog";
+                if (arrayFirmas.length < 19) { 
+                    document.getElementById('submitBtn').innerText = "Firmar Flog";
+                    document.getElementById('submitBtn').disabled = false;
+                }
             }
         });
     </script>
